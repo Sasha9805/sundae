@@ -23,7 +23,7 @@ export default function Options({ optionType }) {
 			})
 			.then((response) => setItems(response.data))
 			.catch((error) => {
-				if (error.name !== "CnaceledError") {
+				if (error.name !== "CanceledError") {
 					setError(true);
 				}
 			});
