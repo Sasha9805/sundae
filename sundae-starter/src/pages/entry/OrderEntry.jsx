@@ -6,6 +6,8 @@ import { useOrderDetails } from "../../contexts/OrderDetails";
 export default function OrderEntry({ setOrderPhase }) {
 	const { totals } = useOrderDetails();
 
+	const orderDisabled = totals.scoops === 0;
+
 	return (
 		<div>
 			<h1>Design Your Sundae!</h1>
@@ -14,7 +16,10 @@ export default function OrderEntry({ setOrderPhase }) {
 			<h2>
 				Grand total: {formatCurrency(totals.scoops + totals.toppings)}
 			</h2>
-			<Button onClick={() => setOrderPhase("review")}>
+			<Button
+				onClick={() => setOrderPhase("review")}
+				disabled={orderDisabled}
+			>
 				Order sundae!
 			</Button>
 		</div>
