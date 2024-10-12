@@ -24,7 +24,7 @@ test("Handles errors for scoops and toppings routes", async () => {
 test("Disable order button if there are no scoops ordered", async () => {
 	const user = userEvent.setup();
 
-	render(<OrderEntry />);
+	render(<OrderEntry setOrderPhase={vi.fn()} />);
 
 	// order button should be disabled at first, even before options load
 	const orderButton = screen.getByRole("button", {
